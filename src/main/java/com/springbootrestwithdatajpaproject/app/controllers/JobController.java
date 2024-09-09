@@ -25,43 +25,44 @@ public class JobController {
 	public JobController(JobService jobService) {
 		this.jobService = jobService;
 	}
-	
+
 	@PostMapping("/addJobPost")
 	public ResponseEntity<String> createJobPost(@RequestBody JobPostDto jobPostDto) {
 		System.out.println(jobPostDto.toString());
 		jobService.savePost(jobPostDto);
 		return new ResponseEntity<String>("Added new jobPost", HttpStatus.CREATED);
 	}
-	
+
 	@GetMapping("/jobPosts")
-	public ResponseEntity<List<JobPostDto>> getJobPosts(){
+	public ResponseEntity<List<JobPostDto>> getJobPosts() {
 		return new ResponseEntity<List<JobPostDto>>(jobService.getAllJobPosts(), HttpStatus.OK);
 	}
-	
+
 	@GetMapping("/jobPost/{postId}")
-	public ResponseEntity<JobPostDto> getJobPost(@PathVariable("postId") int postId){
+	public ResponseEntity<JobPostDto> getJobPost(@PathVariable("postId") int postId) {
 		return new ResponseEntity<JobPostDto>(jobService.getJobPostById(postId), HttpStatus.OK);
 	}
-	
+
 	@PutMapping("/jobPost/{postId}")
-	public ResponseEntity<String> updateJobPost(@PathVariable("postId") int postId, @RequestBody JobPostDto jobPostDto){
+	public ResponseEntity<String> updateJobPost(@PathVariable("postId") int postId,
+			@RequestBody JobPostDto jobPostDto) {
 		jobService.updateJobPost(postId, jobPostDto);
 		return new ResponseEntity<String>("Updated the jobPost", HttpStatus.OK);
 	}
-	
+
 	@DeleteMapping("/jobPost/{postId}")
-	public ResponseEntity<String> deleteJobPost(@PathVariable("postId") int postId){
+	public ResponseEntity<String> deleteJobPost(@PathVariable("postId") int postId) {
 		jobService.deleteJobPost(postId);
 		return new ResponseEntity<String>("Deleted the jobPost", HttpStatus.OK);
 	}
-	
+
 	@GetMapping("/jobPosts/keyword/{keyword}")
-	public ResponseEntity<List<JobPostDto>> getJobPostsByKeyword(@PathVariable("keyword") String keyword){
+	public ResponseEntity<List<JobPostDto>> getJobPostsByKeyword(@PathVariable("keyword") String keyword) {
 		return new ResponseEntity<List<JobPostDto>>(jobService.searchByKeyword(keyword), HttpStatus.OK);
 	}
-	
+
 	@GetMapping("/jobPost/reqExperience/{reqExperience}")
-	public ResponseEntity<JobPostDto> getJobPostByReqExperience(@PathVariable("reqExperience") int reqExperience){
+	public ResponseEntity<JobPostDto> getJobPostByReqExperience(@PathVariable("reqExperience") int reqExperience) {
 		return new ResponseEntity<JobPostDto>(jobService.getJobPostByReqExperience(reqExperience), HttpStatus.OK);
 	}
 }
