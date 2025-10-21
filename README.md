@@ -38,34 +38,36 @@ Ensure you have the following installed:
 ---
 
 ### 2️⃣ Clone the Repository
-
+```bash
 git clone https://github.com/balajishiva2001/sample-springboot-rest-with-datajpa-project.git  
 cd sample-springboot-rest-with-datajpa-project
+```
 
 ---
 
 ### 3️⃣ Build the Project
 
 Using Maven Wrapper:
-
+```bash
 ./mvnw clean install
-
+```
 Or Maven directly:
-
+```bash
 mvn clean install
+```
 
 ---
 
 ### 4️⃣ Run the Application
 
 Start the Spring Boot server:
-
+```bash
 ./mvnw spring-boot:run
-
+```
 Or:
-
+```bash
 mvn spring-boot:run
-
+```
 Access the app at: http://localhost:8080
 
 ---
@@ -85,17 +87,18 @@ DELETE | /api/entities/{id}    | Delete an entity by ID
 ---
 
 ### 6️⃣ (Optional) Run Tests
-
+```bash
 ./mvnw test
-
+```
 Or:
-
+```bash
 mvn test
+```
 
 ---
 
 ## 📂 Project Structure
-
+```
 sample-springboot-rest-with-datajpa-project/  
 ├── src/  
 │   ├── main/  
@@ -105,6 +108,7 @@ sample-springboot-rest-with-datajpa-project/
 ├── mvnw                            # Maven wrapper scripts  
 ├── pom.xml                        # Maven build file  
 └── README.md                      # This file  
+```
 
 ---
 
